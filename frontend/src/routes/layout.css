@@ -1,0 +1,281 @@
+@import 'tailwindcss';
+@plugin 'daisyui' {
+	themes: risexarena --default;
+}
+
+/* RISExArena Custom Theme */
+@plugin 'daisyui/theme' {
+	name: 'risexarena';
+	default: true;
+	prefersdark: true;
+	color-scheme: dark;
+
+	--color-base-100: oklch(12% 0 0);
+	--color-base-200: oklch(18% 0 0);
+	--color-base-300: oklch(25% 0 0);
+	--color-base-content: oklch(95% 0 0);
+
+	--color-primary: oklch(75% 0.18 160);
+	--color-primary-content: oklch(5% 0 0);
+
+	--color-secondary: oklch(60% 0.15 160);
+	--color-secondary-content: oklch(95% 0 0);
+
+	--color-accent: oklch(85% 0.2 160);
+	--color-accent-content: oklch(5% 0 0);
+
+	--color-neutral: oklch(20% 0 0);
+	--color-neutral-content: oklch(80% 0 0);
+
+	--color-info: oklch(70% 0.15 230);
+	--color-info-content: oklch(0% 0 0);
+
+	--color-success: oklch(75% 0.18 160);
+	--color-success-content: oklch(0% 0 0);
+
+	--color-warning: oklch(85% 0.18 85);
+	--color-warning-content: oklch(0% 0 0);
+
+	--color-error: oklch(65% 0.25 25);
+	--color-error-content: oklch(98% 0 0);
+
+	--radius-selector: 0.25rem;
+	--radius-field: 0.25rem;
+	--radius-box: 0.5rem;
+
+	--size-selector: 0.25rem;
+	--size-field: 0.25rem;
+
+	--border: 1px;
+	--depth: 0;
+	--noise: 0;
+}
+
+/* Custom Fonts */
+@font-face {
+	font-family: 'Speeday';
+	src: url('/Speeday-Regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/GeistMono-Thin.otf') format('opentype');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/GeistMono-UltraLight.otf') format('opentype');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/GeistMono-Light.otf') format('opentype');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/GeistMono-Regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/GeistMono-SemiBold.otf') format('opentype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/GeistMono-Bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/GeistMono-Black.otf') format('opentype');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Geist Mono';
+	src: url('/GeistMono-UltraBlack.otf') format('opentype');
+	font-weight: 950;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Font Classes */
+@utility font-display {
+	font-family: 'Speeday', system-ui, sans-serif;
+}
+
+@utility font-mono {
+	font-family: 'Geist Mono', ui-monospace, monospace;
+}
+
+/* Global Styles */
+html {
+	font-family: 'Geist Mono', ui-monospace, monospace;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #1a1a1a;
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #00d991;
+}
+
+/* Selection Color */
+::selection {
+	background-color: rgba(0, 217, 145, 0.3);
+	color: #ffffff;
+}
+
+/* ASCII/Matrix Background Animation */
+@keyframes matrix-rain {
+	0% {
+		transform: translateY(-100%);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(100vh);
+		opacity: 0;
+	}
+}
+
+/* Scanline Effect */
+.scanlines {
+	position: relative;
+}
+
+.scanlines::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: repeating-linear-gradient(
+		0deg,
+		rgba(0, 0, 0, 0.15),
+		rgba(0, 0, 0, 0.15) 1px,
+		transparent 1px,
+		transparent 2px
+	);
+	pointer-events: none;
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+	0% {
+		clip-path: inset(40% 0 61% 0);
+		transform: translate(-2px, 2px);
+	}
+	20% {
+		clip-path: inset(92% 0 1% 0);
+		transform: translate(2px, -2px);
+	}
+	40% {
+		clip-path: inset(43% 0 1% 0);
+		transform: translate(-2px, 2px);
+	}
+	60% {
+		clip-path: inset(25% 0 58% 0);
+		transform: translate(2px, -2px);
+	}
+	80% {
+		clip-path: inset(54% 0 7% 0);
+		transform: translate(-2px, 2px);
+	}
+	100% {
+		clip-path: inset(58% 0 43% 0);
+		transform: translate(2px, -2px);
+	}
+}
+
+/* Glow Effect for primary elements */
+@utility glow-primary {
+	box-shadow:
+		0 0 5px rgba(0, 217, 145, 0.5),
+		0 0 10px rgba(0, 217, 145, 0.3),
+		0 0 20px rgba(0, 217, 145, 0.1);
+}
+
+@utility glow-primary-lg {
+	box-shadow:
+		0 0 10px rgba(0, 217, 145, 0.6),
+		0 0 20px rgba(0, 217, 145, 0.4),
+		0 0 40px rgba(0, 217, 145, 0.2);
+}
+
+/* Text Glow */
+@utility text-glow {
+	text-shadow:
+		0 0 5px rgba(0, 217, 145, 0.5),
+		0 0 10px rgba(0, 217, 145, 0.3);
+}
+
+/* Trader Colors - for 4 distinct traders */
+@utility trader-1 {
+	--trader-color: oklch(75% 0.18 160);
+}
+
+@utility trader-2 {
+	--trader-color: oklch(70% 0.2 30);
+}
+
+@utility trader-3 {
+	--trader-color: oklch(75% 0.2 270);
+}
+
+@utility trader-4 {
+	--trader-color: oklch(80% 0.2 60);
+}
+
+/* PnL Colors */
+@utility text-profit {
+	color: oklch(75% 0.18 160);
+}
+
+@utility text-loss {
+	color: oklch(65% 0.25 25);
+}
+
+@utility bg-profit {
+	background-color: oklch(75% 0.18 160 / 0.15);
+}
+
+@utility bg-loss {
+	background-color: oklch(65% 0.25 25 / 0.15);
+}
