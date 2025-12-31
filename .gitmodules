@@ -1,0 +1,6 @@
+[submodule "contracts/risexarena/lib/forge-std"]
+	path = contracts/risexarena/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "contracts/risexarena/lib/solady"]
+	path = contracts/risexarena/lib/solady
+	url = https://github.com/vectorized/solady
